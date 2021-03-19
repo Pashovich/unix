@@ -1,7 +1,7 @@
 # unix
 
 ## Lab1 
-* В директории lab1 `./script.sh`
+* В директории lab1 `./script.sh main.c`
 
 
 ## Lab2
