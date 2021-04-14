@@ -5,11 +5,12 @@
 pthread_cond_t cond;
 pthread_mutex_t mutex;
 
+using namespace std;
 
 void *provider(void*) {
     while(true) {
         pthread_mutex_lock(&mutex);
-        std::cout << "provider\n";
+        cout << "provider\n";
         pthread_cond_signal(&cond);
         pthread_mutex_unlock(&mutex);
         sleep(1);
@@ -20,7 +21,7 @@ void *consumer(void*) {
     while(true) {
         pthread_mutex_lock(&mutex);
         pthread_cond_wait(&cond, &mutex);
-        std::cout << "consumer\n\n";
+        cout << "consumer\n\n";
         pthread_mutex_unlock(&mutex);
     }
 }
