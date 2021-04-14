@@ -8,7 +8,7 @@ fi
 
 FILENAME_STRING="$(grep -i "Output:" "$1")"
 FILENAME_WITH_WHITESPACE=${FILENAME_STRING#//Output:}
-FILENAME=$(echo "$FILENAME_WITH_WHITESPACE" | tr -d '[:space:]')
+FILENAME=$(echo "$FILENAME_WITH_WHITESPACE" | tr -d [:space:])
 
 # check if var FILENAME is not empty and contains name
 if [ -z "$FILENAME" ]; then
