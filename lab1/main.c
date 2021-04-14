@@ -6,4 +6,4 @@ int main()
     return 0;
 }
 
-//Output:      program
+//Output:  program
