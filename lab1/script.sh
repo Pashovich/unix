@@ -23,7 +23,6 @@ TEMP_FOLDER=$(mktemp -d)
 
 # check if program was killed to remove temp dir
 trap "rm -rf TEMP_FOLDER; exit 1" SIGINT SIGHUP SIGTERM
->>>>>>> 22cccbe77e58e9c0ac0f530ebbcd496925889bde
 
 cp "$1" "$TEMP_FOLDER"/
 
