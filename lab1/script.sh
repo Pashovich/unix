@@ -8,7 +8,7 @@ then
 fi
 
 
-FILENAME_STRING=$(grep -i output: "$1")
+FILENAME_STRING=$(grep Output: "$1")
 FILENAME_WITH_WHITESPACE=${FILENAME_STRING#//Output:}
 FILENAME=$(echo "$FILENAME_WITH_WHITESPACE" | tr -d [:space:])
 
