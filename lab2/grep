@@ -5,18 +5,12 @@
 pthread_cond_t cond;
 pthread_mutex_t mutex;
 
-int state = 0;
 using namespace std;
 
 void *provider(void*) {
     while(true) {
         pthread_mutex_lock(&mutex);
-        if (state == 1){
-            pthread_mutex_unlock(&mutex);
-            continue;
-        }
-        state = 1;
-        cout << "provided \n";
+        cout << "provider\n";
         pthread_cond_signal(&cond);
         pthread_mutex_unlock(&mutex);
         sleep(1);
@@ -24,15 +18,10 @@ void *provider(void*) {
 }
 
 void *consumer(void*) {
-    while (true)
-    {             
+    while(true) {
         pthread_mutex_lock(&mutex);
-        while(state == 0) {
-            pthread_cond_wait(&cond, &mutex);
-            
-        }
-        state = 0;
-        cout << "consumed \n\n";
+        pthread_cond_wait(&cond, &mutex);
+        cout << "consumer\n\n";
         pthread_mutex_unlock(&mutex);
     }
 }
